@@ -1,10 +1,21 @@
 from fastapi import FastAPI, HTTPException
 import requests
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI(
     title="Dust Deposition Estimator",
     description="Estimates dust deposition on a solar panel and calculates the estimated drop in power output based on air quality and weather data.",
     version="1.0"
+)
+
+origins = ["*"]
+
+add.app_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 # --- Embedded Parameters ---
